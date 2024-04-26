@@ -24,15 +24,15 @@ const searchEvent = (e) => {
     return alert("찾는 결과가 없습니다.");
   }
 
-  // 모든 카드 display:none 이게 속도가 더 느린거 같은데
+  // 모든 카드의 클래스를 초기화하고, display:none
   movie_list.querySelectorAll(".movie_card").forEach((e) => {
     e.classList = "movie_card";
     e.style = "display:none";
   });
 
-  // 검색으로 찾은 카드만 display
+  // 검색으로 찾은 카드의 스타일을 초기화하고, 클래스 리스트에 searched추가하고 display 활성화
   find_items.forEach((e) => {
-    e.style.display = "";
+    e.style = "";
     e.classList = "movie_card searched";
   });
 
