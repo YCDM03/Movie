@@ -1,3 +1,3 @@
 //options.Authorization: value
-const token = "";
+const token = "1";
 export default { token };
