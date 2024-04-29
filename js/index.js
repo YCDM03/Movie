@@ -3,7 +3,7 @@ import token from "./config/token.js";
 //img, title, overview, vote average, id등 총 5가지(이상)의 데이터가 element에 담겨 전달
 //5가지의 데이터로 동적으로 만든 html태그의 내용을 채운 후 Card로 만들어 movie_list에 append함
 function createCard(element) {
-  let movie_card = document.createElement("div");
+  let movie_card = document.createElement("li");
   movie_card.className = "movie_card";
 
   let img = document.createElement("img");
@@ -70,7 +70,6 @@ const searchEvent = (e) => {
 const movie_list = document.querySelector(".movie_list");
 const search_input = document.querySelector(".search_input");
 const search_btn = document.querySelector(".search_btn");
-const body = document.querySelector("body");
 
 //DOM구축 후 검색창에 focus하는 코드
 document.addEventListener("DOMContentLoaded", (e) => {
@@ -99,17 +98,17 @@ const options = {
 };
 
 //fetch요청, 영화api사이트의 1page의 내용을 받아 createCard함수로 화면에 카드를 만들어 뿌려줌
-const result = fetch(
+fetch(
   "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
   options
 )
   .then((response) => response.json())
-  .then((data) => {
-    let results = data.results;
+  .then((response) => {
+    let results = response.results;
     results.forEach((element) => {
       createCard(element);
     });
   })
   .catch((err) => console.error(err));
 
-export { img_url, movie_list, search_input };
+// export { img_url, movie_list, search_input };
