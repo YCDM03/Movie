@@ -37,7 +37,7 @@ header > h1 > a {
   font-weight: 600;
 }
 .search_input {
-  width: 200px;
+  width: 250px;
   border: 1px solid #d3d3d3;
   border-radius: 3px;
 }
@@ -45,7 +45,9 @@ header > h1 > a {
   background-color: white;
   margin-left: 3px;
   border: 1px solid #d3d3d3;
-  border-radius: 2px;
+  border-left: 0;
+  border-radius: 3px;
+  font-weight: 700;
 }
 .search_btn:hover {
   background-color: aquamarine;
