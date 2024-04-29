@@ -1,4 +1,4 @@
-import token from "./config.js/token.js";
+import token from "./config/token.js";
 
 //img, title, overview, vote average, id등 총 5가지(이상)의 데이터가 element에 담겨 전달
 //5가지의 데이터로 동적으로 만든 html태그의 내용을 채운 후 Card로 만들어 movie_list에 append함
