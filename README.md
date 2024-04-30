@@ -13,7 +13,7 @@ moviesite
 │  └─ config
 │    ├─ token.js
 │    └─ url.js
+├─ .gitignore
 ├─ index.html
 └─ README.md
-
 ```
