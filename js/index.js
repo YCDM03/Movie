@@ -1,4 +1,5 @@
 import token from "./config/token.js";
+import { img_url, top_rated_url } from "./config/url.js";
 
 //img, title, overview, vote average, id등 총 5가지(이상)의 데이터가 element에 담겨 전달
 //5가지의 데이터로 동적으로 만든 html태그의 내용을 채운 후 Card로 만들어 movie_list에 append함
@@ -85,9 +86,6 @@ search_input.addEventListener("keydown", (e) => {
   }
 });
 
-//img가져올 때 기본 경로(img 경로 구성:1+2+3, 그중 1번)
-const img_url = "https://image.tmdb.org/t/p/w500/";
-
 //fetch옵션
 const options = {
   method: "GET",
@@ -98,10 +96,7 @@ const options = {
 };
 
 //fetch요청, 영화api사이트의 1page의 내용을 받아 createCard함수로 화면에 카드를 만들어 뿌려줌
-fetch(
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
-  options
-)
+fetch(top_rated_url, options)
   .then((response) => response.json())
   .then((response) => {
     let results = response.results;
@@ -110,5 +105,3 @@ fetch(
     });
   })
   .catch((err) => console.error(err));
-
-// export { img_url, movie_list, search_input };
