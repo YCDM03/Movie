@@ -14,7 +14,7 @@ function createCard(element) {
 
   movie_card.innerHTML = `
   <img class=poster src=${img_url + element.backdrop_path} alt=${element.title}>
-  <div class=movie_title></div>
+  <div class=movie_title>${element.title}</div>
   <div class=movie_overview>${element.overview}</div>
   <div class=vote_average>rating : ⭐${element.vote_average}</div>
   `;
