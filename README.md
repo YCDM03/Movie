@@ -7,14 +7,13 @@ moviesite
 ├─ css
 │  └─ index.css
 ├─ img
-│  ├─ favicon.ico
-│  ├─ Frame 4.svg
-│  └─ Frame 5.svg
-├─ index.html
+│  ├─ favicon.svg
 ├─ js
-│  ├─ createcard.js
 │  ├─ index.js
-│  └─ searchevent.js
+│  └─ config
+│    ├─ token.js
+│    └─ url.js
+├─ index.html
 └─ README.md
 
 ```
