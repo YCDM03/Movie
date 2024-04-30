@@ -1,35 +1,28 @@
 import token from "./config/token.js";
 import { img_url, top_rated_url } from "./config/url.js";
 
+//index.html에서 가져온 태그들
+const movie_list = document.querySelector(".movie_list");
+const search_input = document.querySelector(".search_input");
+const search_btn = document.querySelector(".search_btn");
+
 //img, title, overview, vote average, id등 총 5가지(이상)의 데이터가 element에 담겨 전달
 //5가지의 데이터로 동적으로 만든 html태그의 내용을 채운 후 Card로 만들어 movie_list에 append함
 function createCard(element) {
   let movie_card = document.createElement("li");
   movie_card.className = "movie_card";
 
-  let img = document.createElement("img");
-  img.className = "poster";
-  img.setAttribute("src", img_url + element.backdrop_path);
-  img.setAttribute("alt", element.title);
-  img.id = element.id;
+  movie_card.innerHTML = `
+  <img class=poster src=${img_url + element.backdrop_path} alt=${element.title}>
+  <div class=movie_title></div>
+  <div class=movie_overview>${element.overview}</div>
+  <div class=vote_average>rating : ⭐${element.vote_average}</div>
+  `;
 
-  let movie_title = document.createElement("div");
-  movie_title.className = "movie_title";
-  movie_title.innerHTML = element.title;
-
-  let movie_overview = document.createElement("div");
-  movie_overview.className = "movie_overview";
-  movie_overview.innerHTML = element.overview;
-
-  let vote_average = document.createElement("div");
-  vote_average.className = "vote_average";
-  vote_average.innerHTML = "rating : " + "⭐" + element.vote_average;
-
-  movie_card.addEventListener("click", (e) => {
+  movie_card.addEventListener("click", () => {
     alert("영화 id : " + element.id);
   });
   movie_list.appendChild(movie_card);
-  movie_card.append(img, movie_title, movie_overview, vote_average);
 }
 
 const searchEvent = (e) => {
@@ -66,11 +59,6 @@ const searchEvent = (e) => {
     e.classList = "movie_card searched";
   });
 };
-
-//index.html에서 가져온 태그들
-const movie_list = document.querySelector(".movie_list");
-const search_input = document.querySelector(".search_input");
-const search_btn = document.querySelector(".search_btn");
 
 //DOM구축 후 검색창에 focus하는 코드
 document.addEventListener("DOMContentLoaded", (e) => {
